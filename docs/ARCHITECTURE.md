@@ -1,13 +1,13 @@
-# Nexus Architecture
+# Kura Architecture
 
 ## System Overview
-Nexus acts as a "Datastore Proxy." Agents interact with the Nexus Binary via MCP or S3-API, and Nexus manages the physical storage and remote synchronization.
+Kura acts as a "Datastore Proxy." Agents interact with the Kura Binary via MCP or S3-API, and Kura manages the physical storage and remote synchronization.
 
 ```mermaid
 graph TD
-    Agent[AI Agent / OpenClaw] -->|MCP / S3-API| Nexus[Nexus Binary]
-    Nexus -->|Write/Read| LocalSSD[(Local SSD Storage)]
-    Nexus -->|Sync| Adapter[Sync Adapters]
+    Agent[AI Agent / OpenClaw] -->|MCP / S3-API| Kura[Kura Binary]
+    Kura -->|Write/Read| LocalSSD[(Local SSD Storage)]
+    Kura -->|Sync| Adapter[Sync Adapters]
     Adapter -->|HTTPS| S3[(Remote S3 Bucket)]
     Adapter -->|HTTPS| GDrive[(Google Drive)]
 ```
@@ -30,5 +30,5 @@ graph TD
 
 ## Deployment
 - Single Go binary.
-- Configured via `nexus.yaml`.
+- Configured via `kura.yaml`.
 - Designed to run on Raspberry Pi 4/5 or local workstations.

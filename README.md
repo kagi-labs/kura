@@ -1,7 +1,7 @@
-# Project Nexus 🛰️
+# Project Kura 🏯
 **The Definitive Agentic Datastore.**
 
-Nexus is a local-first storage abstraction layer for AI agents. It provides a unified S3-compatible interface and MCP server for persistent memory, artifacts, and cross-session data, while handling complex syncing (S3, GDrive) transparently in the background.
+Kura is a local-first storage abstraction layer for AI agents. It provides a unified S3-compatible interface and MCP server for persistent memory, artifacts, and cross-session data, while handling complex syncing (S3, GDrive) transparently in the background.
 
 ## Core Mission
 To eliminate "sync hacks" by providing agents with a reliable, high-performance binary that manages local and remote state.
