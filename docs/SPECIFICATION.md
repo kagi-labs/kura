@@ -15,10 +15,10 @@
 - **Cloud:** Pluggable sync to S3, Google Drive, or Dropbox.
 - **Protocol:** Event-driven sync triggers on file close.
 
-## 5. Organizational Structure (Collections)
-- **Namespaced Storage:** Data is organized into logical "Kura Collections" (equivalent to S3 Buckets or high-level directories).
-- **Default Collections:**
-    - \`general/\`: Global agent memory, user preferences, and cross-project context.
-    - \`projects/{project_id}/\`: Isolated artifacts, design docs, and session logs for specific missions (e.g., \`projects/hashi/\`).
-    - \`learning/\`: Distilled insights, scraped articles, and "meditation" results.
-- **Discovery:** Agents can query specific collections to limit context noise.
+## 5. Organizational Structure (Dynamic Collections)
+- **On-Demand Namespacing:** Kura does not require pre-defined collections. Collections are created dynamically whenever an agent or user specifies a new path (e.g., `kura_save(collection="research/ai-safety", ...)`).
+- **Infinite Hierarchy:** Supports nested collections for deep organization (e.g., `learning/rust/concurrency`).
+- **Discovery & Listing:** 
+    - `list_collections()`: Returns all active high-level "storage rooms."
+    - `search_across_collections(query)`: Global search that respects dynamic boundaries.
+- **Smart Routing:** If no collection is specified, data defaults to `general/`, but agents are encouraged to "label" their data at creation time.
