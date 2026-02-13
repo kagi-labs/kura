@@ -15,6 +15,10 @@
 - **Cloud:** Pluggable sync to S3, Google Drive, or Dropbox.
 - **Protocol:** Event-driven sync triggers on file close.
 
-## 4. Conflict Resolution
-- Last-write-wins by default.
-- Versioning support for critical memory files.
+## 5. Organizational Structure (Collections)
+- **Namespaced Storage:** Data is organized into logical "Kura Collections" (equivalent to S3 Buckets or high-level directories).
+- **Default Collections:**
+    - \`general/\`: Global agent memory, user preferences, and cross-project context.
+    - \`projects/{project_id}/\`: Isolated artifacts, design docs, and session logs for specific missions (e.g., \`projects/hashi/\`).
+    - \`learning/\`: Distilled insights, scraped articles, and "meditation" results.
+- **Discovery:** Agents can query specific collections to limit context noise.
