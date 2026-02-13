@@ -1,13 +1,13 @@
-# Monolith Architecture
+# Nexus Architecture
 
 ## System Overview
-Monolith acts as a "Datastore Proxy." Agents interact with the Monolith Binary via MCP or S3-API, and Monolith manages the physical storage and remote synchronization.
+Nexus acts as a "Datastore Proxy." Agents interact with the Nexus Binary via MCP or S3-API, and Nexus manages the physical storage and remote synchronization.
 
 ```mermaid
 graph TD
-    Agent[AI Agent / OpenClaw] -->|MCP / S3-API| Monolith[Monolith Binary]
-    Monolith -->|Write/Read| LocalSSD[(Local SSD Storage)]
-    Monolith -->|Sync| Adapter[Sync Adapters]
+    Agent[AI Agent / OpenClaw] -->|MCP / S3-API| Nexus[Nexus Binary]
+    Nexus -->|Write/Read| LocalSSD[(Local SSD Storage)]
+    Nexus -->|Sync| Adapter[Sync Adapters]
     Adapter -->|HTTPS| S3[(Remote S3 Bucket)]
     Adapter -->|HTTPS| GDrive[(Google Drive)]
 ```
@@ -30,5 +30,5 @@ graph TD
 
 ## Deployment
 - Single Go binary.
-- Configured via `monolith.yaml`.
+- Configured via `nexus.yaml`.
 - Designed to run on Raspberry Pi 4/5 or local workstations.
