@@ -16,7 +16,7 @@ Working minimal KB using FastEmbed (local ONNX embeddings, no API dependency):
 
 ## Phase 2: Typed Memory + Graph Layer
 
-Inspired by competitive analysis of [Spacebot](spacebot-analysis.md) and [Supermemory](supermemory-analysis.md).
+Goals: structured memory with types, relationships, and decay scoring.
 
 ### 2a. Typed Memory Categories
 
@@ -61,7 +61,7 @@ Combine vector similarity + keyword search using Reciprocal Rank Fusion:
 2. **Keyword search** — SQLite FTS5 (add to Kura core)
 3. **RRF merge** — `score = Σ 1/(k + rank_i)` across both result lists
 
-This matches the approach used by Spacebot (LanceDB does this natively).
+RRF is a proven, simple fusion method that needs no tuning.
 
 ## Phase 4: Auto-Capture
 
@@ -92,12 +92,10 @@ Move from Python script to Kura's Go binary:
 | Graph store (future) | SQLite adjacency table | No need for Neo4j at our scale |
 | Search fusion | RRF | Simple, proven, no tuning needed |
 
-## Competitive Positioning
+## Design Principles
 
-Our advantage over Supermemory and Spacebot:
-
-1. **Local-first on edge hardware** (Pi) — they target cloud/desktop
+1. **Local-first on edge hardware** (Pi) — no cloud dependency
 2. **Obsidian Vault integration** — direct access to user's knowledge base
-3. **Zero recurring cost** — no $20/month, no API fees
+3. **Zero recurring cost** — no API fees
 4. **Full data sovereignty** — nothing leaves the device
 5. **Open and hackable** — Python script you can read and modify
