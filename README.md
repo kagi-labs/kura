@@ -11,3 +11,4 @@ To eliminate "sync hacks" by providing agents with a reliable, high-performance 
 - **S3 Interface:** Speak the standard language of the cloud, locally.
 - **Local-First:** High-speed writes to local SSD.
 - **Background Sync:** Reliable adapters for Google Drive, S3, and more.
+- **Record/Ledger System:** Immutable, content-addressed agent memory with Git-like properties. See [docs/RECORD_LEDGER.md](docs/RECORD_LEDGER.md).

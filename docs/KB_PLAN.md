@@ -81,6 +81,7 @@ Move from Python script to Kura's Go binary:
 - MCP tools: `kura_search(query, mode="semantic")`
 - FastEmbed via CGO or subprocess
 - Dynamic collections / namespacing
+- **Record/Ledger system** — immutable typed records with content-addressed hashing, dual-ledger turns, Git-like commit chains. See [RECORD_LEDGER.md](RECORD_LEDGER.md)
 
 ## Tech Decisions
 
